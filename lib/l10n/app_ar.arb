@@ -2,5 +2,6 @@
   "islami": "اسلامي",
   "settings": "الاعدادات",
   "darkMode": "الوضع الليلي",
-  "suraName": "اسم السورة"
+  "suraName": "اسم السورة",
+  "counterOfSebha" : "عدد التسبيحات"
 }

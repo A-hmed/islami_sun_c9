@@ -2,5 +2,6 @@
   "islami": "Islami",
   "settings": "Settings",
   "darkMode": "Dark mode",
-  "suraName": "Sura name"
+  "suraName": "Sura name",
+  "counterOfSebha" : "Number of tasbihs"
 }

@@ -8,4 +8,8 @@ abstract class AppAssets{
   static const ahadehtTabLogo = "${baseImagesPath}ahadeth_tab_logo.png";
   static const backgorund = "${baseImagesPath}background.png";
   static const darkBackgorund = "${baseImagesPath}backgorund_dark.png";
+  static const sebhaTabLogo = "${baseImagesPath}sebha_tab_logo.png";
+  static const darkSebhaTabLogo = "${baseImagesPath}sebha_tab_logo_dark.png";
+  static const headOfSebha = "${baseImagesPath}head_of_sebha.png";
+  static const darkHeadOfSebha = "${baseImagesPath}head_of_sebha_dark.png";
 }

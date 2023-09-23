@@ -11,6 +11,8 @@ abstract class AppTheme{
       color: AppColors.accent);
   static const TextStyle settingsOptionTitle = TextStyle(fontSize: 22, fontWeight: FontWeight.normal,
       color: AppColors.accent);
+  static const TextStyle sebhaTabTitle = TextStyle(fontSize: 25, fontWeight: FontWeight.normal ,
+      color: AppColors.white);
 
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.transparent,
@@ -33,7 +35,8 @@ abstract class AppTheme{
     textTheme: TextTheme(
       bodySmall: settingsOptionTitle,
       bodyMedium: settingsTabTitle,
-      displayMedium: quranTabTitleTextStyle
+      displayMedium: quranTabTitleTextStyle,
+      titleMedium: sebhaTabTitle
     )
   );
 
@@ -58,8 +61,8 @@ abstract class AppTheme{
       textTheme: TextTheme(
           bodySmall: settingsOptionTitle.copyWith(color: AppColors.white),
           bodyMedium: settingsTabTitle.copyWith(color: AppColors.white),
-          displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white)
+          displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white),
+          titleMedium: sebhaTabTitle.copyWith(color: AppColors.accent)
       )
   );
-
 }
