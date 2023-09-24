@@ -27,17 +27,16 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         AppLocalizations.delegate
       ],
-      supportedLocales: [Locale("en"), Locale("ar",)],
+      supportedLocales: const [Locale("en"), Locale("ar",)],
       locale: Locale(provider.currentLocale),
       themeMode: provider.currentMode,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       routes: {
-        HomeScreen.routeName:(_) => HomeScreen(),
-        DetailsScreen.routeName: (_)=> DetailsScreen(),
+        HomeScreen.routeName: (_) => HomeScreen(),
+        DetailsScreen.routeName: (_) => DetailsScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
   }
-
 }
