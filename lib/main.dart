@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami_sun_c9/providers/settings_provider.dart';
 import 'package:islami_sun_c9/ui/screens/details_screen/details_screen.dart';
 import 'package:islami_sun_c9/ui/screens/home/home_screen.dart';
-import 'package:islami_sun_c9/ui/utils/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_sun_c9/ui/utils/app_theme.dart';
 import 'package:provider/provider.dart';
