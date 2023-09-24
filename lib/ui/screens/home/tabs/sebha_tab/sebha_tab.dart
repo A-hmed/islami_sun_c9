@@ -12,10 +12,12 @@ class SebhaTab extends StatefulWidget {
   State<SebhaTab> createState() => SebhaTabState();
 }
 
-class SebhaTabState extends State<SebhaTab> {
+class SebhaTabState extends State<SebhaTab>{
   int sebhaCounter = 0;
   int sebhaWordCounter = 0;
+  double angle = 0;
   List<String> tasbehWords = ["سبحان الله", "الحمدلله", "الله اكبر"];
+
   @override
   Widget build(BuildContext context) {
     SettingsProvider provider = Provider.of(context);
@@ -25,19 +27,21 @@ class SebhaTabState extends State<SebhaTab> {
         Expanded(
           flex: 5,
           child: InkWell(
+            splashColor: AppColors.transparent,
+            highlightColor: AppColors.transparent,
             onTap: () {
               sebhaLogic();
-              setState(() {});
-            },
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(right: 120,bottom: 160,child: Image(image: provider.currentMode == ThemeMode.light ? const AssetImage(AppAssets.headOfSebha) : const AssetImage(AppAssets.darkHeadOfSebha), width: 90, height: 85,)),
-                Positioned(bottom: 4,child: Image(image: provider.currentMode == ThemeMode.light ? const AssetImage(AppAssets.sebhaTabLogo) : const AssetImage(AppAssets.darkSebhaTabLogo), width: 185, height: 180,)),
-              ],
-            ),
-          ),
-        ),
+              },
+                child: RotationTransition(
+                  turns: AlwaysStoppedAnimation(angle / 360),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Positioned(right: 120,bottom: 160,child: Image(image: provider.currentMode == ThemeMode.light ? const AssetImage(AppAssets.headOfSebha) : const AssetImage(AppAssets.darkHeadOfSebha), width: 90, height: 85,)),
+                      Positioned(bottom: 4,child: Image(image: provider.currentMode == ThemeMode.light ? const AssetImage(AppAssets.sebhaTabLogo) : const AssetImage(AppAssets.darkSebhaTabLogo), width: 185, height: 180,)),
+                    ],
+                  ),
+                ),),),
         Expanded(flex: 5, child: Column(
           children: [
             Padding(
@@ -46,12 +50,14 @@ class SebhaTabState extends State<SebhaTab> {
             ),
             const Spacer(),
             Container(
+              width: 70,
+              height: 65,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: provider.currentMode == ThemeMode.light ? AppColors.primiary.withAlpha(150) : AppColors.primiaryDark.withAlpha(200)
+                color: provider.currentMode == ThemeMode.light ? AppColors.primiary.withAlpha(150) : AppColors.primiaryDark.withAlpha(180)
               ),
-              child: Text("${int.parse(sebhaCounter.toString())}", style: const TextStyle(fontSize: 25, fontWeight: FontWeight.normal),),
+              child: Text("$sebhaCounter", textAlign: TextAlign.center, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.normal),),
             ),
             const SizedBox(height: 20,),
             Container(
@@ -74,16 +80,19 @@ class SebhaTabState extends State<SebhaTab> {
 
   void sebhaLogic()
   {
-    sebhaWordCounter++;
-    if(sebhaWordCounter >= tasbehWords.length)
+    setState(() {
+      sebhaWordCounter++;
+      if(sebhaWordCounter >= tasbehWords.length)
       {
         sebhaWordCounter = 0;
         sebhaCounter++;
+        angle += 10.5882352;
       }
-    if(sebhaCounter > 33)
+      if(sebhaCounter > 33)
       {
         sebhaCounter = 0;
         sebhaWordCounter = 0;
       }
+    });
   }
 }

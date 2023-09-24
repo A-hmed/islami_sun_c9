@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.islami),
         ),
-        body: tabs[currentTabIndex],
+        body: tabs[2],
         bottomNavigationBar: buildBottomNavigationBar(),
       ),
     );
