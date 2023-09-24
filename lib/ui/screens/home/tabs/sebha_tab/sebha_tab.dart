@@ -81,9 +81,9 @@ class SebhaTabState extends State<SebhaTab> {
         sebhaCounter++;
       }
     if(sebhaCounter > 33)
-    {
-      sebhaCounter = 0;
-      sebhaWordCounter = 0;
-    }
+      {
+        sebhaCounter = 0;
+        sebhaWordCounter = 0;
+      }
   }
 }
