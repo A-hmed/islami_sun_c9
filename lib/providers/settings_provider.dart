@@ -6,6 +6,8 @@ class SettingsProvider extends ChangeNotifier{
 
   bool isDarkMode() => currentMode == ThemeMode.dark;
 
+  bool isAr() => currentLocale == "ar";
+
   void setCurrentMode(ThemeMode newThemeMode){
     currentMode = newThemeMode;
     notifyListeners();
