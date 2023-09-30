@@ -4,17 +4,20 @@ class SettingsProvider extends ChangeNotifier{
   String currentLocale = "en";
   ThemeMode currentMode = ThemeMode.light;
 
+  bool isAr() => currentLocale == "ar";
   bool isDarkMode() => currentMode == ThemeMode.dark;
 
-  bool isAr() => currentLocale == "ar";
-
-  void setCurrentMode(ThemeMode newThemeMode){
-    currentMode = newThemeMode;
-    notifyListeners();
+  ThemeMode setCurrentMode(bool isDark){
+    return currentMode = isDark ? ThemeMode.dark : ThemeMode.light;
   }
 
-  void setCurrentLocale(String newLocale){
-    currentLocale = newLocale;
-    notifyListeners();
+  String setCurrentLocale(bool isAr){
+    return currentLocale = isAr ? "ar" : "en";
+  }
+
+  @override
+  void notifyListeners() {
+    // TODO: implement notifyListeners
+    super.notifyListeners();
   }
 }

@@ -6,8 +6,6 @@ import 'package:islami_sun_c9/ui/screens/home/tabs/radio_tab/radio_tab.dart';
 import 'package:islami_sun_c9/ui/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islami_sun_c9/ui/screens/home/tabs/settings_tab/settings_tab.dart';
 import 'package:islami_sun_c9/ui/utils/app_assets.dart';
-import 'package:islami_sun_c9/ui/utils/app_colors.dart';
-import 'package:islami_sun_c9/ui/utils/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     QuranTab(),
     AhadethTab(),
-    const SebhaTab(),
+    SebhaTab(),
     const RadioTab(),
     SettingsTab()
   ];

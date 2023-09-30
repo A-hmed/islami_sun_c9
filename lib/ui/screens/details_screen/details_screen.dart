@@ -4,6 +4,8 @@ import 'package:islami_sun_c9/model/details_screen_args.dart';
 import 'package:islami_sun_c9/ui/utils/app_assets.dart';
 import 'package:islami_sun_c9/ui/utils/app_colors.dart';
 import 'package:islami_sun_c9/ui/utils/app_theme.dart';
+import 'package:islami_sun_c9/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatefulWidget {
   static const String routeName = "details_screen";
@@ -20,13 +22,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of(context);
     arguments = ModalRoute.of(context)!.settings.arguments as DetailsScreenArgs;
     if(fileContent.isEmpty){
       readFile();
     }
     return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssets.backgorund), fit: BoxFit.fill)
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(provider.currentMode == ThemeMode.light ? AppAssets.backgorund : AppAssets.darkBackgorund), fit: BoxFit.fill)
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,
@@ -36,14 +39,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
           centerTitle: true,
           title: Text(arguments.suraOrHadethName, style: AppTheme.appBarTitleTextStyle,),
         ),
-        body: fileContent.isEmpty ? const Center(child: CircularProgressIndicator()):
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        body: fileContent.isEmpty ? Center(child: CircularProgressIndicator(color: provider.currentMode == ThemeMode.light ? AppColors.primiary : AppColors.accentDark,)):
+        Container(
+          margin: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: provider.currentMode == ThemeMode.light ? AppColors.white : AppColors.primiaryDark
+          ),
           child: SingleChildScrollView(
             child: Text(fileContent,
               textAlign: TextAlign.center,
               textDirection: TextDirection.rtl,
-              style: const TextStyle(fontSize: 24, color: AppColors.accent),),
+              style: Theme.of(context).textTheme.bodyLarge),
           ),
         ),
       ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_sun_c9/ui/utils/app_colors.dart';
 
@@ -11,11 +10,15 @@ abstract class AppTheme{
       color: AppColors.accent);
   static const TextStyle settingsOptionTitle = TextStyle(fontSize: 22, fontWeight: FontWeight.normal,
       color: AppColors.accent);
+  static const TextStyle sebhaTabTitle = TextStyle(fontSize: 25, fontWeight: FontWeight.normal ,
+      color: AppColors.white);
+  static const TextStyle detailsScreen = TextStyle(fontSize: 24,
+      color: AppColors.accent);
 
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.transparent,
     primaryColor: AppColors.primiary,
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
       thickness: 3,
       color: AppColors.primiary,
     ),
@@ -25,22 +28,24 @@ abstract class AppTheme{
       elevation: 0,
       titleTextStyle: appBarTitleTextStyle
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: AppColors.accent,
       selectedIconTheme: IconThemeData(size: 32),
       unselectedIconTheme: IconThemeData(size: 26)
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodySmall: settingsOptionTitle,
       bodyMedium: settingsTabTitle,
-      displayMedium: quranTabTitleTextStyle
+      displayMedium: quranTabTitleTextStyle,
+      titleMedium: sebhaTabTitle,
+      bodyLarge: detailsScreen
     )
   );
 
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: AppColors.transparent,
       primaryColor: AppColors.primiaryDark,
-      dividerTheme: DividerThemeData(
+      dividerTheme: const DividerThemeData(
         thickness: 3,
         color: AppColors.accentDark,
       ),
@@ -58,8 +63,9 @@ abstract class AppTheme{
       textTheme: TextTheme(
           bodySmall: settingsOptionTitle.copyWith(color: AppColors.white),
           bodyMedium: settingsTabTitle.copyWith(color: AppColors.white),
-          displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white)
+          displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white),
+          titleMedium: sebhaTabTitle.copyWith(color: AppColors.accent),
+          bodyLarge: detailsScreen.copyWith(color: AppColors.accentDark)
       )
   );
-
 }
