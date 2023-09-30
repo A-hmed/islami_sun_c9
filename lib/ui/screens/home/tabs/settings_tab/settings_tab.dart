@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_sun_c9/cache_helper/cache_data.dart';
 import 'package:islami_sun_c9/providers/settings_provider.dart';
 import 'package:islami_sun_c9/ui/utils/app_colors.dart';
-import 'package:islami_sun_c9/ui/utils/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +18,8 @@ class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
     provider = Provider.of(context);
+    arSwitch = provider.isAr();
+    darkModeSwitch = provider.isDarkMode();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -27,18 +29,26 @@ class _SettingsTabState extends State<SettingsTab> {
           buildSettingsRow("العربيه", arSwitch, (newValue) {
             arSwitch = newValue;
             if(arSwitch){
-              provider.setCurrentLocale("ar");
+              provider.setCurrentLocale(true);
+              provider.notifyListeners();
+              CacheData.setData(key: 'Local', value: provider.isAr());
             }else {
-              provider.setCurrentLocale("en");
+              provider.setCurrentLocale(false);
+              provider.notifyListeners();
+              CacheData.setData(key: 'Local', value: provider.isAr());
             }
           }),
           buildSettingsRow(AppLocalizations.of(context)!.darkMode, darkModeSwitch,
                   (newValue) {
             darkModeSwitch = newValue;
             if(darkModeSwitch){
-              provider.setCurrentMode(ThemeMode.dark);
+              provider.setCurrentMode(true);
+              provider.notifyListeners();
+              CacheData.setTheme(key: 'Theme', value: provider.isDarkMode());
             }else {
-              provider.setCurrentMode(ThemeMode.light);
+              provider.setCurrentMode(false);
+              provider.notifyListeners();
+              CacheData.setTheme(key: 'Theme', value: provider.isDarkMode());
             }
           }),
 
