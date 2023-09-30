@@ -11,8 +11,8 @@ class SettingsTab extends StatefulWidget {
 }
 
 class _SettingsTabState extends State<SettingsTab> {
-  bool arSwitch = false;
-  bool darkModeSwitch = false;
+  late bool arSwitch;
+  late bool darkModeSwitch;
   late SettingsProvider provider ;
 
   @override
