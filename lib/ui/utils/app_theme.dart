@@ -34,7 +34,14 @@ abstract class AppTheme{
       bodySmall: settingsOptionTitle,
       bodyMedium: settingsTabTitle,
       displayMedium: quranTabTitleTextStyle
-    )
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primary,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        textStyle: const TextStyle(
+          fontSize: 25,color: AppColors.accent))),
+    splashColor: AppColors.transpaernt,
+    highlightColor: AppColors.transpaernt
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -59,7 +66,14 @@ abstract class AppTheme{
           bodySmall: settingsOptionTitle.copyWith(color: AppColors.white),
           bodyMedium: settingsTabTitle.copyWith(color: AppColors.white),
           displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white)
-      )
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.accent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        textStyle: const TextStyle(
+          fontSize: 25,color: AppColors.primary))),
+    splashColor: AppColors.transpaernt,
+    highlightColor: AppColors.transpaernt
   );
 
 }
